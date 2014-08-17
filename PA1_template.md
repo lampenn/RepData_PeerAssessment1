@@ -79,7 +79,7 @@ library(lattice)
 s <- aggregate(steps ~ interval*dayofweek, 
                data=newdata, FUN=mean, simplify=FALSE)
 
-xyplot(steps ~ interval|dayofweek, data=s)
+xyplot(steps ~ interval|dayofweek, data=s, panel = panel.lines, layout=c(1,2))
 
 
 
