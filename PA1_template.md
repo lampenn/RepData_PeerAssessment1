@@ -3,27 +3,11 @@
 
 ## Loading and preprocessing the data
 
-
-
-## What is mean total number of steps taken per day?
-
-
-
-## What is the average daily activity pattern?
-
-
-
-## Imputing missing values
-
-
-
-## Are there differences in activity patterns between weekdays and weekends?
-
-
-
 ## Load data, no formatting required
 mydata <- read.csv("activity.csv")
 
+
+## What is mean total number of steps taken per day?
 
 ## Draw histogram
 myresult <- tapply(mydata$steps,mydata$date,sum)
@@ -37,6 +21,7 @@ mean(steps, na.rm=TRUE)
 print("Median: ")
 median(steps, na.rm=TRUE)
 
+## What is the average daily activity pattern?
 
 ## Plot time series of 5-min interval and average steps taken
 myresult2 <- tapply(mydata$steps, mydata$interval, mean, na.rm=TRUE)
@@ -48,6 +33,7 @@ plot(as.numeric(names(myresult2)), as.vector(myresult2),
 print("Maximum number of steps:")
 names(which.max(myresult2))
 
+## Imputing missing values
 
 ## Report total number of missing values in the dataset
 print("Total number of missing values in the dataset:")
@@ -76,6 +62,7 @@ mean(newsteps, na.rm=TRUE)
 print("Median (no NA's): ")
 median(newsteps, na.rm=TRUE)
 
+## Are there differences in activity patterns between weekdays and weekends?
 
 ## Create factor in new data set with two levels "weekday" & "weekend"
 dayofweek <- as.POSIXlt(newdata$date)$wday %% 6
